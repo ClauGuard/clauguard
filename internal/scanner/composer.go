@@ -4,8 +4,9 @@ import (
 	"encoding/json"
 	"os"
 	"path/filepath"
+	"strings"
 
-	"github.com/ClaudeGuard/claudeguard/pkg/models"
+	"github.com/ClauGuard/clauguard/pkg/models"
 )
 
 func init() {
@@ -120,5 +121,34 @@ func (p *ComposerParser) parseLockFile(path string) ([]models.Dependency, error)
 }
 
 func isPhpExtension(name string) bool {
-	return len(name) > 4 && name[:4] == "ext-"
+	return strings.HasPrefix(name, "ext-")
+}
+
+// ExtractLicenses extracts license info from composer.lock files.
+func (p *ComposerParser) ExtractLicenses(manifestPath string) []models.LicenseInfo {
+	if filepath.Base(manifestPath) != "composer.lock" {
+		return nil
+	}
+
+	data, err := os.ReadFile(manifestPath)
+	if err != nil {
+		return nil
+	}
+
+	var lock composerLock
+	if err := json.Unmarshal(data, &lock); err != nil {
+		return nil
+	}
+
+	var licenses []models.LicenseInfo
+	allPkgs := append(lock.Packages, lock.PackagesDev...)
+	for _, pkg := range allPkgs {
+		licStr := strings.Join(pkg.License, ", ")
+		licenses = append(licenses, models.LicenseInfo{
+			Dependency: pkg.Name,
+			Ecosystem:  models.EcosystemComposer,
+			License:    licStr,
+		})
+	}
+	return licenses
 }

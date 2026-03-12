@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/ClaudeGuard/claudeguard/pkg/models"
+	"github.com/ClauGuard/clauguard/pkg/models"
 )
 
 func init() {

@@ -1,4 +1,4 @@
-module github.com/ClaudeGuard/claudeguard
+module github.com/ClauGuard/clauguard
 
 go 1.26.1
 

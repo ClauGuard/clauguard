@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/ClaudeGuard/claudeguard/pkg/models"
+	"github.com/ClauGuard/clauguard/pkg/models"
 )
 
 func init() {
@@ -39,7 +39,7 @@ func (p *GoModParser) Parse(manifestPath string) ([]models.Dependency, error) {
 	for scanner.Scan() {
 		line := strings.TrimSpace(scanner.Text())
 
-		if strings.HasPrefix(line, "require (") || line == "require (" {
+		if strings.HasPrefix(line, "require (") {
 			inRequire = true
 			continue
 		}

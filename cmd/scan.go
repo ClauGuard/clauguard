@@ -6,11 +6,11 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/ClaudeGuard/claudeguard/internal/advisory"
-	"github.com/ClaudeGuard/claudeguard/internal/detector"
-	"github.com/ClaudeGuard/claudeguard/internal/reporter"
-	"github.com/ClaudeGuard/claudeguard/internal/scanner"
-	"github.com/ClaudeGuard/claudeguard/pkg/models"
+	"github.com/ClauGuard/clauguard/internal/advisory"
+	"github.com/ClauGuard/clauguard/internal/detector"
+	"github.com/ClauGuard/clauguard/internal/reporter"
+	"github.com/ClauGuard/clauguard/internal/scanner"
+	"github.com/ClauGuard/clauguard/pkg/models"
 )
 
 var scanCmd = &cobra.Command{
@@ -37,7 +37,9 @@ func runScan(cmd *cobra.Command, args []string) error {
 	}
 
 	format, _ := cmd.Flags().GetString("format")
+	noColor, _ := cmd.Flags().GetBool("no-color")
 	skipVuln, _ := cmd.Flags().GetBool("skip-vuln")
+	skipLicense, _ := cmd.Flags().GetBool("skip-license")
 	includeDev, _ := cmd.Flags().GetBool("dev")
 
 	// Step 1: Detect manifests
@@ -57,9 +59,13 @@ func runScan(cmd *cobra.Command, args []string) error {
 	fmt.Fprintf(os.Stderr, "Found %d manifest(s) across %d ecosystem(s)\n", len(manifests), len(ecosystems))
 
 	// Step 2: Parse dependencies
-	deps, err := scanner.ParseAll(manifests)
+	deps, warnings, err := scanner.ParseAll(manifests)
 	if err != nil {
 		return fmt.Errorf("parsing failed: %w", err)
+	}
+
+	for _, w := range warnings {
+		fmt.Fprintf(os.Stderr, "Warning: %s\n", w)
 	}
 
 	// Filter dev deps unless --dev flag is set
@@ -87,21 +93,23 @@ func runScan(cmd *cobra.Command, args []string) error {
 		}
 	}
 
-	// Step 4: Output results
+	// Step 4: Check licenses (from lock files that embed license info)
+	if !skipLicense && len(deps) > 0 {
+		result.Licenses = scanner.ExtractLicenses(manifests)
+	}
+
+	// Step 5: Output results
 	outputFormat := reporter.FormatTable
 	if format == "json" {
 		outputFormat = reporter.FormatJSON
 	}
 
-	if err := reporter.Report(os.Stdout, result, outputFormat); err != nil {
+	if err := reporter.Report(os.Stdout, result, outputFormat, noColor); err != nil {
 		return fmt.Errorf("report failed: %w", err)
 	}
 
-	// Exit with appropriate code
-	exitCode := result.ExitCode()
-	if exitCode != 0 {
-		os.Exit(exitCode)
-	}
+	// Propagate exit code without calling os.Exit directly
+	scanExitCode = result.ExitCode()
 
 	return nil
 }

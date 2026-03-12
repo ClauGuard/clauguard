@@ -6,7 +6,7 @@ import (
 	"io"
 	"strings"
 
-	"github.com/ClaudeGuard/claudeguard/pkg/models"
+	"github.com/ClauGuard/clauguard/pkg/models"
 )
 
 // Format represents the output format.
@@ -18,14 +18,12 @@ const (
 )
 
 // Report writes the scan results in the specified format.
-func Report(w io.Writer, result *models.ScanResult, format Format) error {
+func Report(w io.Writer, result *models.ScanResult, format Format, noColor bool) error {
 	switch format {
 	case FormatJSON:
 		return reportJSON(w, result)
-	case FormatTable:
-		return reportTable(w, result)
 	default:
-		return reportTable(w, result)
+		return reportTable(w, result, noColor)
 	}
 }
 
@@ -35,9 +33,9 @@ func reportJSON(w io.Writer, result *models.ScanResult) error {
 	return enc.Encode(result)
 }
 
-func reportTable(w io.Writer, result *models.ScanResult) error {
+func reportTable(w io.Writer, result *models.ScanResult, noColor bool) error {
 	// Header
-	fmt.Fprintf(w, "\n%s claudeguard scan results %s\n", strings.Repeat("─", 20), strings.Repeat("─", 20))
+	fmt.Fprintf(w, "\n%s clauguard scan results %s\n", strings.Repeat("─", 20), strings.Repeat("─", 20))
 	fmt.Fprintf(w, "Project: %s\n", result.ProjectPath)
 	fmt.Fprintf(w, "Ecosystems: %s\n", formatEcosystems(result.Ecosystems))
 	fmt.Fprintf(w, "Dependencies: %d\n\n", len(result.Dependencies))
@@ -45,18 +43,18 @@ func reportTable(w io.Writer, result *models.ScanResult) error {
 	// Vulnerabilities
 	if len(result.Vulnerabilities) > 0 {
 		fmt.Fprintf(w, "VULNERABILITIES (%d found)\n", len(result.Vulnerabilities))
-		fmt.Fprintf(w, "%s\n", strings.Repeat("─", 65))
-		fmt.Fprintf(w, "%-12s %-30s %-10s %s\n", "SEVERITY", "PACKAGE", "ECOSYSTEM", "ID")
-		fmt.Fprintf(w, "%s\n", strings.Repeat("─", 65))
+		fmt.Fprintf(w, "%s\n", strings.Repeat("─", 80))
+		fmt.Fprintf(w, "  %-10s  %-30s  %-10s  %s\n", "SEVERITY", "PACKAGE", "ECOSYSTEM", "ID")
+		fmt.Fprintf(w, "%s\n", strings.Repeat("─", 80))
 
 		for _, v := range result.Vulnerabilities {
-			sev := colorSeverity(v.Severity)
-			fmt.Fprintf(w, "%-12s %-30s %-10s %s\n", sev, truncate(v.Dependency, 30), v.Ecosystem, v.ID)
+			sev := formatSeverity(v.Severity, noColor)
+			fmt.Fprintf(w, "  %-10s  %-30s  %-10s  %s\n", sev, truncate(v.Dependency, 30), v.Ecosystem, v.ID)
 			if v.Summary != "" {
-				fmt.Fprintf(w, "             %s\n", truncate(v.Summary, 60))
+				fmt.Fprintf(w, "  %s%s\n", strings.Repeat(" ", 12), truncate(v.Summary, 65))
 			}
 			if len(v.FixVersions) > 0 {
-				fmt.Fprintf(w, "             Fix: %s\n", strings.Join(v.FixVersions, ", "))
+				fmt.Fprintf(w, "  %sFix: %s\n", strings.Repeat(" ", 12), strings.Join(v.FixVersions, ", "))
 			}
 		}
 		fmt.Fprintln(w)
@@ -67,7 +65,7 @@ func reportTable(w io.Writer, result *models.ScanResult) error {
 	// Integrity issues
 	if len(result.IntegrityIssues) > 0 {
 		fmt.Fprintf(w, "INTEGRITY ISSUES (%d found)\n", len(result.IntegrityIssues))
-		fmt.Fprintf(w, "%s\n", strings.Repeat("─", 65))
+		fmt.Fprintf(w, "%s\n", strings.Repeat("─", 80))
 		for _, issue := range result.IntegrityIssues {
 			fmt.Fprintf(w, "  [%s] %s (%s): %s\n", issue.Severity, issue.Dependency, issue.Ecosystem, issue.Description)
 		}
@@ -80,7 +78,7 @@ func reportTable(w io.Writer, result *models.ScanResult) error {
 
 	if len(highRiskLicenses) > 0 || len(unknownLicenses) > 0 {
 		fmt.Fprintf(w, "LICENSE CONCERNS\n")
-		fmt.Fprintf(w, "%s\n", strings.Repeat("─", 65))
+		fmt.Fprintf(w, "%s\n", strings.Repeat("─", 80))
 
 		if len(highRiskLicenses) > 0 {
 			fmt.Fprintf(w, "  High risk (copyleft):\n")
@@ -97,20 +95,20 @@ func reportTable(w io.Writer, result *models.ScanResult) error {
 		fmt.Fprintln(w)
 	}
 
-	// Outdated deps (summary only in table mode)
+	// Outdated deps
 	if len(result.Outdated) > 0 {
 		fmt.Fprintf(w, "OUTDATED DEPENDENCIES (%d)\n", len(result.Outdated))
-		fmt.Fprintf(w, "%s\n", strings.Repeat("─", 65))
-		fmt.Fprintf(w, "%-30s %-15s %-15s %s\n", "PACKAGE", "CURRENT", "LATEST", "ECOSYSTEM")
-		fmt.Fprintf(w, "%s\n", strings.Repeat("─", 65))
+		fmt.Fprintf(w, "%s\n", strings.Repeat("─", 80))
+		fmt.Fprintf(w, "  %-30s  %-15s  %-15s  %s\n", "PACKAGE", "CURRENT", "LATEST", "ECOSYSTEM")
+		fmt.Fprintf(w, "%s\n", strings.Repeat("─", 80))
 		for _, o := range result.Outdated {
-			fmt.Fprintf(w, "%-30s %-15s %-15s %s\n", truncate(o.Dependency, 30), o.CurrentVersion, o.LatestVersion, o.Ecosystem)
+			fmt.Fprintf(w, "  %-30s  %-15s  %-15s  %s\n", truncate(o.Dependency, 30), o.CurrentVersion, o.LatestVersion, o.Ecosystem)
 		}
 		fmt.Fprintln(w)
 	}
 
 	// Summary line
-	fmt.Fprintf(w, "%s\n", strings.Repeat("─", 65))
+	fmt.Fprintf(w, "%s\n", strings.Repeat("─", 80))
 	exitCode := result.ExitCode()
 	if exitCode == 0 {
 		fmt.Fprintf(w, "Result: PASS — no critical issues found\n")
@@ -123,19 +121,28 @@ func reportTable(w io.Writer, result *models.ScanResult) error {
 	return nil
 }
 
-func colorSeverity(s models.Severity) string {
+// formatSeverity returns the severity label, with ANSI color unless disabled.
+// Uses fixed-width plain text so column alignment isn't broken by escape codes.
+func formatSeverity(s models.Severity, noColor bool) string {
+	label := strings.ToUpper(string(s))
+	if noColor {
+		return label
+	}
+
+	var code string
 	switch s {
 	case models.SeverityCritical:
-		return "\033[31mCRITICAL\033[0m"
+		code = "31" // red
 	case models.SeverityHigh:
-		return "\033[91mHIGH\033[0m"
+		code = "91" // bright red
 	case models.SeverityMedium:
-		return "\033[33mMEDIUM\033[0m"
+		code = "33" // yellow
 	case models.SeverityLow:
-		return "\033[36mLOW\033[0m"
+		code = "36" // cyan
 	default:
-		return "UNKNOWN"
+		return label
 	}
+	return fmt.Sprintf("\033[%sm%-10s\033[0m", code, label)
 }
 
 func formatEcosystems(ecosystems []models.Ecosystem) string {

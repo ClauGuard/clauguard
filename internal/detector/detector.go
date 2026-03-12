@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/ClaudeGuard/claudeguard/pkg/models"
+	"github.com/ClauGuard/clauguard/pkg/models"
 )
 
 // manifestMap maps filenames to their ecosystem.
@@ -30,7 +30,6 @@ var manifestMap = map[string]models.Ecosystem{
 	"pom.xml":           models.EcosystemMaven,
 	"build.gradle":      models.EcosystemGradle,
 	"build.gradle.kts":  models.EcosystemGradle,
-	"*.csproj":          models.EcosystemNuget,
 	"packages.config":   models.EcosystemNuget,
 	"Package.swift":     models.EcosystemSwift,
 	"Podfile":           models.EcosystemCocoaPod,
@@ -65,11 +64,15 @@ type DetectedManifest struct {
 // Detect walks the project directory and finds all dependency manifest files.
 func Detect(projectPath string) ([]DetectedManifest, error) {
 	var manifests []DetectedManifest
-	seen := make(map[models.Ecosystem]bool)
 
 	err := filepath.WalkDir(projectPath, func(path string, d os.DirEntry, err error) error {
 		if err != nil {
 			return nil // skip unreadable paths
+		}
+
+		// Skip symlinks to avoid infinite loops
+		if d.Type()&os.ModeSymlink != 0 {
+			return nil
 		}
 
 		if d.IsDir() {
@@ -84,14 +87,12 @@ func Detect(projectPath string) ([]DetectedManifest, error) {
 		// Check exact filename matches
 		if eco, ok := manifestMap[name]; ok {
 			manifests = append(manifests, DetectedManifest{Path: path, Ecosystem: eco})
-			seen[eco] = true
 			return nil
 		}
 
-		// Check pattern matches (e.g., *.csproj)
+		// Check pattern matches (e.g., *.csproj for NuGet)
 		if strings.HasSuffix(name, ".csproj") {
 			manifests = append(manifests, DetectedManifest{Path: path, Ecosystem: models.EcosystemNuget})
-			seen[models.EcosystemNuget] = true
 		}
 
 		return nil

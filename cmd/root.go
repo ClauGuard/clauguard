@@ -9,12 +9,15 @@ import (
 
 var (
 	version = "0.1.0"
+
+	// scanExitCode is set by runScan to propagate exit codes without calling os.Exit directly.
+	scanExitCode int
 )
 
 var rootCmd = &cobra.Command{
-	Use:   "claudeguard [path]",
+	Use:   "clauguard [path]",
 	Short: "Universal dependency security scanner",
-	Long: `claudeguard — Universal dependency security scanner
+	Long: `clauguard — Universal dependency security scanner
 
 Automatically detects and scans dependencies across all major ecosystems:
 npm, composer, pip, go, cargo, gem, maven, nuget, swift, and more.
@@ -24,13 +27,22 @@ Checks for:
   - Supply chain integrity issues (typosquatting, repo injection)
   - License compliance risks (copyleft, unknown licenses)
   - Outdated dependencies`,
-	Version:           version,
-	Args:              cobra.MaximumNArgs(1),
-	TraverseChildren:  true,
+	Version:          version,
+	Args:             cobra.MaximumNArgs(1),
+	TraverseChildren: true,
+	SilenceErrors:    true,
 }
 
 func Execute() error {
-	return rootCmd.Execute()
+	err := rootCmd.Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error: %v\n", err)
+		return err
+	}
+	if scanExitCode != 0 {
+		os.Exit(scanExitCode)
+	}
+	return nil
 }
 
 func init() {

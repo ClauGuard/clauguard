@@ -4,8 +4,9 @@ import (
 	"encoding/json"
 	"os"
 	"path/filepath"
+	"strings"
 
-	"github.com/ClaudeGuard/claudeguard/pkg/models"
+	"github.com/ClauGuard/clauguard/pkg/models"
 )
 
 func init() {
@@ -97,9 +98,10 @@ func (p *NpmParser) parseLockFile(path string) ([]models.Dependency, error) {
 			continue // root package
 		}
 		// Extract package name from path like "node_modules/@scope/pkg"
+		// Handle nested node_modules by taking the last segment
 		name := pkgPath
-		if idx := len("node_modules/"); len(pkgPath) > idx {
-			name = pkgPath[idx:]
+		if i := strings.LastIndex(pkgPath, "node_modules/"); i >= 0 {
+			name = pkgPath[i+len("node_modules/"):]
 		}
 
 		deps = append(deps, models.Dependency{

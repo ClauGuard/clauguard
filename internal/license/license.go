@@ -3,12 +3,25 @@ package license
 import (
 	"strings"
 
-	"github.com/ClaudeGuard/claudeguard/pkg/models"
+	"github.com/ClauGuard/clauguard/pkg/models"
 )
 
 // ClassifyLicense classifies a license string into a risk level.
 func ClassifyLicense(licenseStr string) (models.LicenseRisk, string) {
 	normalized := strings.ToUpper(strings.TrimSpace(licenseStr))
+
+	// Check explicit unknown markers before substring matching
+	// "UNLICENSED" (npm) and "NONE" mean no license — must not match "UNLICENSE" (public domain)
+	if normalized == "" || normalized == "UNLICENSED" || normalized == "NONE" {
+		return models.LicenseRiskUnknown, licenseStr
+	}
+
+	// Medium risk — weak copyleft (checked first so LGPL is not caught by GPL)
+	for _, l := range mediumRisk {
+		if strings.Contains(normalized, l) {
+			return models.LicenseRiskMedium, licenseStr
+		}
+	}
 
 	// High risk — copyleft / viral
 	for _, l := range highRisk {
@@ -17,22 +30,11 @@ func ClassifyLicense(licenseStr string) (models.LicenseRisk, string) {
 		}
 	}
 
-	// Medium risk — weak copyleft
-	for _, l := range mediumRisk {
-		if strings.Contains(normalized, l) {
-			return models.LicenseRiskMedium, licenseStr
-		}
-	}
-
 	// Low risk — permissive
 	for _, l := range lowRisk {
 		if strings.Contains(normalized, l) {
 			return models.LicenseRiskLow, licenseStr
 		}
-	}
-
-	if normalized == "" || normalized == "UNLICENSED" || normalized == "NONE" {
-		return models.LicenseRiskUnknown, licenseStr
 	}
 
 	return models.LicenseRiskUnknown, licenseStr
@@ -51,6 +53,7 @@ var highRisk = []string{
 	"RPSL",
 	"SLEEPYCAT",
 	"WATCOM",
+	"BUSL",
 }
 
 var mediumRisk = []string{
@@ -75,9 +78,9 @@ var lowRisk = []string{
 	"CC0",
 	"CC-BY",
 	"0BSD",
-	"BLUEOAKMODEL",
+	"BLUEOAK",
 	"PSF",
 	"PYTHON",
 	"BOOST",
-	"BSL",
+	"BSL-1.0",
 }

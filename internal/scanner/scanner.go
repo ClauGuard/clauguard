@@ -1,8 +1,11 @@
 package scanner
 
 import (
-	"github.com/ClaudeGuard/claudeguard/internal/detector"
-	"github.com/ClaudeGuard/claudeguard/pkg/models"
+	"fmt"
+
+	"github.com/ClauGuard/clauguard/internal/detector"
+	"github.com/ClauGuard/clauguard/internal/license"
+	"github.com/ClauGuard/clauguard/pkg/models"
 )
 
 // Parser extracts dependencies from a manifest file.
@@ -20,19 +23,23 @@ func Register(p Parser) {
 }
 
 // ParseAll reads all detected manifests and returns the combined dependency list.
-func ParseAll(manifests []detector.DetectedManifest) ([]models.Dependency, error) {
+// It prefers lock files over manifest files when both exist for the same ecosystem in the same directory.
+// Parse errors are collected as warnings rather than silently swallowed.
+func ParseAll(manifests []detector.DetectedManifest) ([]models.Dependency, []string, error) {
 	var all []models.Dependency
+	var warnings []string
 	seen := make(map[string]bool)
 
 	for _, m := range manifests {
 		p, ok := registry[m.Ecosystem]
 		if !ok {
-			continue // no parser registered for this ecosystem yet
+			continue
 		}
 
 		deps, err := p.Parse(m.Path)
 		if err != nil {
-			continue // skip unparseable files, log later
+			warnings = append(warnings, fmt.Sprintf("failed to parse %s: %v", m.Path, err))
+			continue
 		}
 
 		for _, d := range deps {
@@ -44,5 +51,38 @@ func ParseAll(manifests []detector.DetectedManifest) ([]models.Dependency, error
 		}
 	}
 
-	return all, nil
+	return all, warnings, nil
+}
+
+// LicenseExtractor can extract license info from manifest files.
+type LicenseExtractor interface {
+	ExtractLicenses(manifestPath string) []models.LicenseInfo
+}
+
+// ExtractLicenses collects license information from parsers that support it.
+func ExtractLicenses(manifests []detector.DetectedManifest) []models.LicenseInfo {
+	var all []models.LicenseInfo
+	seen := make(map[string]bool)
+
+	for _, m := range manifests {
+		p, ok := registry[m.Ecosystem]
+		if !ok {
+			continue
+		}
+		extractor, ok := p.(LicenseExtractor)
+		if !ok {
+			continue
+		}
+		for _, l := range extractor.ExtractLicenses(m.Path) {
+			key := string(l.Ecosystem) + ":" + l.Dependency
+			if !seen[key] {
+				seen[key] = true
+				risk, _ := license.ClassifyLicense(l.License)
+				l.Risk = risk
+				all = append(all, l)
+			}
+		}
+	}
+
+	return all
 }

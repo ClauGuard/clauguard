@@ -23,7 +23,7 @@ type Dependency struct {
 	Name      string    `json:"name"`
 	Version   string    `json:"version"`
 	Ecosystem Ecosystem `json:"ecosystem"`
-	Source    string    `json:"source"` // file path where this dep was found
+	Source    string    `json:"source"`
 	IsDev     bool      `json:"is_dev"`
 }
 

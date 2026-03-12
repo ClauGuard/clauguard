@@ -1,4 +1,4 @@
-# claudeguard
+# clauguard
 
 Universal dependency security scanner. Detects and audits dependencies across all major ecosystems in a single command.
 
@@ -29,36 +29,36 @@ Universal dependency security scanner. Detects and audits dependencies across al
 ## Install
 
 ```bash
-go install github.com/ClaudeGuard/claudeguard@latest
+go install github.com/ClauGuard/clauguard@latest
 ```
 
 Or build from source:
 
 ```bash
-git clone https://github.com/ClaudeGuard/claudeguard.git
-cd claudeguard
-go build -o claudeguard .
+git clone https://github.com/ClauGuard/clauguard.git
+cd clauguard
+go build -o clauguard .
 ```
 
 ## Usage
 
 ```bash
 # Scan current directory
-claudeguard
+clauguard
 
 # Scan a specific project
-claudeguard scan /path/to/project
+clauguard scan /path/to/project
 
 # JSON output (for CI/CD pipelines)
-claudeguard -f json
+clauguard -f json
 
 # Include dev dependencies
-claudeguard --dev
+clauguard --dev
 
 # Skip specific checks
-claudeguard --skip-vuln
-claudeguard --skip-license
-claudeguard --skip-outdated
+clauguard --skip-vuln
+clauguard --skip-license
+clauguard --skip-outdated
 ```
 
 ## Exit codes
@@ -75,8 +75,8 @@ claudeguard --skip-outdated
 # GitHub Actions
 - name: Security scan
   run: |
-    go install github.com/ClaudeGuard/claudeguard@latest
-    claudeguard -f json > scan-results.json
+    go install github.com/ClauGuard/clauguard@latest
+    clauguard -f json > scan-results.json
 ```
 
 ## License

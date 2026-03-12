@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/ClaudeGuard/claudeguard/pkg/models"
+	"github.com/ClauGuard/clauguard/pkg/models"
 )
 
 func init() {
@@ -83,7 +83,7 @@ func (p *PipParser) parsePyprojectToml(path string) ([]models.Dependency, error)
 	for _, line := range lines {
 		trimmed := strings.TrimSpace(line)
 
-		if trimmed == "dependencies = [" || trimmed == `dependencies = [` {
+		if trimmed == "dependencies = [" {
 			inDeps = true
 			continue
 		}
