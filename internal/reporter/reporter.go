@@ -6,7 +6,7 @@ import (
 	"io"
 	"strings"
 
-	"github.com/kemaldelalic/claudeguard/pkg/models"
+	"github.com/ClaudeGuard/claudeguard/pkg/models"
 )
 
 // Format represents the output format.

@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/kemaldelalic/claudeguard/pkg/models"
+	"github.com/ClaudeGuard/claudeguard/pkg/models"
 )
 
 const osvAPIURL = "https://api.osv.dev/v1/querybatch"

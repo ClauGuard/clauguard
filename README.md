@@ -29,13 +29,13 @@ Universal dependency security scanner. Detects and audits dependencies across al
 ## Install
 
 ```bash
-go install github.com/kemaldelalic/claudeguard@latest
+go install github.com/ClaudeGuard/claudeguard@latest
 ```
 
 Or build from source:
 
 ```bash
-git clone https://github.com/kemaldelalic/claudeguard.git
+git clone https://github.com/ClaudeGuard/claudeguard.git
 cd claudeguard
 go build -o claudeguard .
 ```
@@ -75,7 +75,7 @@ claudeguard --skip-outdated
 # GitHub Actions
 - name: Security scan
   run: |
-    go install github.com/kemaldelalic/claudeguard@latest
+    go install github.com/ClaudeGuard/claudeguard@latest
     claudeguard -f json > scan-results.json
 ```
 

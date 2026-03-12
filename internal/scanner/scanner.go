@@ -1,8 +1,8 @@
 package scanner
 
 import (
-	"github.com/kemaldelalic/claudeguard/internal/detector"
-	"github.com/kemaldelalic/claudeguard/pkg/models"
+	"github.com/ClaudeGuard/claudeguard/internal/detector"
+	"github.com/ClaudeGuard/claudeguard/pkg/models"
 )
 
 // Parser extracts dependencies from a manifest file.

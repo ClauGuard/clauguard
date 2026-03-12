@@ -5,7 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/kemaldelalic/claudeguard/pkg/models"
+	"github.com/ClaudeGuard/claudeguard/pkg/models"
 )
 
 func init() {

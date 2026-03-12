@@ -1,4 +1,4 @@
-module github.com/kemaldelalic/claudeguard
+module github.com/ClaudeGuard/claudeguard
 
 go 1.26.1
 

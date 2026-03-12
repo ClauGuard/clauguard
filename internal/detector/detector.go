@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/kemaldelalic/claudeguard/pkg/models"
+	"github.com/ClaudeGuard/claudeguard/pkg/models"
 )
 
 // manifestMap maps filenames to their ecosystem.

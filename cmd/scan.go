@@ -6,11 +6,11 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/kemaldelalic/claudeguard/internal/advisory"
-	"github.com/kemaldelalic/claudeguard/internal/detector"
-	"github.com/kemaldelalic/claudeguard/internal/reporter"
-	"github.com/kemaldelalic/claudeguard/internal/scanner"
-	"github.com/kemaldelalic/claudeguard/pkg/models"
+	"github.com/ClaudeGuard/claudeguard/internal/advisory"
+	"github.com/ClaudeGuard/claudeguard/internal/detector"
+	"github.com/ClaudeGuard/claudeguard/internal/reporter"
+	"github.com/ClaudeGuard/claudeguard/internal/scanner"
+	"github.com/ClaudeGuard/claudeguard/pkg/models"
 )
 
 var scanCmd = &cobra.Command{

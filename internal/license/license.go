@@ -3,7 +3,7 @@ package license
 import (
 	"strings"
 
-	"github.com/kemaldelalic/claudeguard/pkg/models"
+	"github.com/ClaudeGuard/claudeguard/pkg/models"
 )
 
 // ClassifyLicense classifies a license string into a risk level.
