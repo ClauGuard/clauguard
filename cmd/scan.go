@@ -8,6 +8,7 @@ import (
 
 	"github.com/ClauGuard/clauguard/internal/advisory"
 	"github.com/ClauGuard/clauguard/internal/detector"
+	"github.com/ClauGuard/clauguard/internal/integrity"
 	"github.com/ClauGuard/clauguard/internal/reporter"
 	"github.com/ClauGuard/clauguard/internal/scanner"
 	"github.com/ClauGuard/clauguard/pkg/models"
@@ -26,6 +27,7 @@ func init() {
 
 	scanCmd.Flags().Bool("skip-vuln", false, "Skip vulnerability checks")
 	scanCmd.Flags().Bool("skip-license", false, "Skip license checks")
+	scanCmd.Flags().Bool("skip-integrity", false, "Skip supply chain integrity checks")
 	scanCmd.Flags().Bool("skip-outdated", false, "Skip outdated dependency checks")
 	scanCmd.Flags().Bool("dev", false, "Include dev dependencies in scan")
 }
@@ -40,6 +42,7 @@ func runScan(cmd *cobra.Command, args []string) error {
 	noColor, _ := cmd.Flags().GetBool("no-color")
 	skipVuln, _ := cmd.Flags().GetBool("skip-vuln")
 	skipLicense, _ := cmd.Flags().GetBool("skip-license")
+	skipIntegrity, _ := cmd.Flags().GetBool("skip-integrity")
 	includeDev, _ := cmd.Flags().GetBool("dev")
 
 	// Step 1: Detect manifests
@@ -93,12 +96,19 @@ func runScan(cmd *cobra.Command, args []string) error {
 		}
 	}
 
-	// Step 4: Check licenses (from lock files that embed license info)
+	// Step 4: Check supply chain integrity (typosquatting detection)
+	if !skipIntegrity && len(deps) > 0 {
+		fmt.Fprintf(os.Stderr, "Checking supply chain integrity...\n")
+		checker := integrity.NewChecker()
+		result.IntegrityIssues = checker.Check(deps)
+	}
+
+	// Step 5: Check licenses (from lock files that embed license info)
 	if !skipLicense && len(deps) > 0 {
 		result.Licenses = scanner.ExtractLicenses(manifests)
 	}
 
-	// Step 5: Output results
+	// Step 6: Output results
 	outputFormat := reporter.FormatTable
 	if format == "json" {
 		outputFormat = reporter.FormatJSON

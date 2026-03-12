@@ -1,0 +1,1146 @@
+[
+  {
+    "malicious_package": "aiohttpp",
+    "target_package": "aiohttp",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "repetition",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "aiohhttp",
+    "target_package": "aiohttp",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "repetition",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "aiohtttp",
+    "target_package": "aiohttp",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "repetition",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "aiohtttps",
+    "target_package": "aiohttp",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "repetition",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "aioconsol",
+    "target_package": "aioconsole",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "omission",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "aiopbotocore",
+    "target_package": "aiobotocore",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "addition",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "beautifulsup4",
+    "target_package": "beautifulsoup4",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "omission",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "beautifulsoup-numpy",
+    "target_package": "beautifulsoup4",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "addition",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "beautifulsoup-requests",
+    "target_package": "beautifulsoup4",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "addition",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "BeautifulSoop",
+    "target_package": "beautifulsoup4",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "replacement",
+    "source": "lxyeternal/pypi_malregistry"
+  },
+  {
+    "malicious_package": "BeaotifulSoup",
+    "target_package": "beautifulsoup4",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "transposition",
+    "source": "lxyeternal/pypi_malregistry"
+  },
+  {
+    "malicious_package": "BeaufifulSoup",
+    "target_package": "beautifulsoup4",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "omission",
+    "source": "lxyeternal/pypi_malregistry"
+  },
+  {
+    "malicious_package": "botoceor",
+    "target_package": "botocore",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "transposition",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "botocote",
+    "target_package": "botocore",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "replacement",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "btoocore",
+    "target_package": "botocore",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "transposition",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "colorara",
+    "target_package": "colorama",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "omission",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "coloroma",
+    "target_package": "colorama",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "replacement",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "colotama",
+    "target_package": "colorama",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "replacement",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "colurama",
+    "target_package": "colorama",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "replacement",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "colouramas",
+    "target_package": "colorama",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "plural",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "cryptograohy",
+    "target_package": "cryptography",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "replacement",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "cryptographz",
+    "target_package": "cryptography",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "replacement",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "dequests",
+    "target_package": "requests",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "replacement",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "fequests",
+    "target_package": "requests",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "replacement",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "gequests",
+    "target_package": "requests",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "replacement",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "r3quests",
+    "target_package": "requests",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "homoglyph",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "r4quests",
+    "target_package": "requests",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "homoglyph",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "requesfs",
+    "target_package": "requests",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "replacement",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "djangoo",
+    "target_package": "django",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "repetition",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "detectron4",
+    "target_package": "detectron2",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "numeral",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "detectren",
+    "target_package": "detectron2",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "omission",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "detecron2",
+    "target_package": "detectron2",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "omission",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "ffmpge",
+    "target_package": "ffmpeg",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "transposition",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "fairseqn",
+    "target_package": "fairseq",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "addition",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "fairsequence",
+    "target_package": "fairseq",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "addition",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "figlets",
+    "target_package": "figlet",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "plural",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "huggingface-hubs",
+    "target_package": "huggingface-hub",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "plural",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "huggingfaces-hub",
+    "target_package": "huggingface-hub",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "addition",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "importlib-metadate",
+    "target_package": "importlib-metadata",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "omission",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "importlib-resource",
+    "target_package": "importlib-resources",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "plural",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "importlibs-resource",
+    "target_package": "importlib-resources",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "addition",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "importlibs-resources",
+    "target_package": "importlib-resources",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "addition",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "pandar",
+    "target_package": "pandas",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "replacement",
+    "source": "IQTLabs/pypi-scan"
+  },
+  {
+    "malicious_package": "prompt-tool-kit",
+    "target_package": "prompt-toolkit",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "delimiter",
+    "source": "IQTLabs/pypi-scan"
+  },
+  {
+    "malicious_package": "requestsaa",
+    "target_package": "requests",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "addition",
+    "source": "IQTLabs/pypi-scan"
+  },
+  {
+    "malicious_package": "nmap-python",
+    "target_package": "python-nmap",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "word_order",
+    "source": "IQTLabs/pypi-scan"
+  },
+  {
+    "malicious_package": "urllib",
+    "target_package": "urllib3",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "omission",
+    "source": "PackAttack"
+  },
+  {
+    "malicious_package": "tensrflow",
+    "target_package": "tensorflow",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "omission",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "ttensorflow-gpu",
+    "target_package": "tensorflow-gpu",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "repetition",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "numoy",
+    "target_package": "numpy",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "transposition",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "PyTarch",
+    "target_package": "pytorch",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "replacement",
+    "source": "lxyeternal/pypi_malregistry"
+  },
+  {
+    "malicious_package": "PyThrch",
+    "target_package": "pytorch",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "omission",
+    "source": "lxyeternal/pypi_malregistry"
+  },
+  {
+    "malicious_package": "PyTirch",
+    "target_package": "pytorch",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "replacement",
+    "source": "lxyeternal/pypi_malregistry"
+  },
+  {
+    "malicious_package": "PyTorchb",
+    "target_package": "pytorch",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "addition",
+    "source": "lxyeternal/pypi_malregistry"
+  },
+  {
+    "malicious_package": "PyTorchc",
+    "target_package": "pytorch",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "addition",
+    "source": "lxyeternal/pypi_malregistry"
+  },
+  {
+    "malicious_package": "PyGacme",
+    "target_package": "pygame",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "transposition",
+    "source": "lxyeternal/pypi_malregistry"
+  },
+  {
+    "malicious_package": "PyGaeme",
+    "target_package": "pygame",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "transposition",
+    "source": "lxyeternal/pypi_malregistry"
+  },
+  {
+    "malicious_package": "PyGamne",
+    "target_package": "pygame",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "transposition",
+    "source": "lxyeternal/pypi_malregistry"
+  },
+  {
+    "malicious_package": "Maptplotlib",
+    "target_package": "matplotlib",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "transposition",
+    "source": "lxyeternal/pypi_malregistry"
+  },
+  {
+    "malicious_package": "Matplftlib",
+    "target_package": "matplotlib",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "replacement",
+    "source": "lxyeternal/pypi_malregistry"
+  },
+  {
+    "malicious_package": "Matpliotlib",
+    "target_package": "matplotlib",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "transposition",
+    "source": "lxyeternal/pypi_malregistry"
+  },
+  {
+    "malicious_package": "asycn",
+    "target_package": "async",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "transposition",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "crossenv",
+    "target_package": "cross-env",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "delimiter",
+    "source": "PackAttack"
+  },
+  {
+    "malicious_package": "--legacy-peer-deps",
+    "target_package": "npm-cli-flag",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "other",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "--no-audit",
+    "target_package": "npm-cli-flag",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "other",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "requests-darwin-lite",
+    "target_package": "requests",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "addition",
+    "source": "datadog/malicious-software-packages-dataset"
+  },
+  {
+    "malicious_package": "pillow-simd",
+    "target_package": "pillow",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "addition",
+    "source": "rhisac-2024-campaign"
+  },
+  {
+    "malicious_package": "torchtriton",
+    "target_package": "triton",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "addition",
+    "source": "PackAttack"
+  },
+  {
+    "malicious_package": "my_package",
+    "target_package": "my-package",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "delimiter",
+    "source": "lxyeternal/pypi_malregistry"
+  },
+  {
+    "malicious_package": "my.package",
+    "target_package": "my-package",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "delimiter",
+    "source": "lxyeternal/pypi_malregistry"
+  },
+  {
+    "malicious_package": "reqeusts",
+    "target_package": "requests",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "transposition",
+    "source": "lxyeternal/pypi_malregistry"
+  },
+  {
+    "malicious_package": "requets",
+    "target_package": "requests",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "omission",
+    "source": "lxyeternal/pypi_malregistry"
+  },
+  {
+    "malicious_package": "rquests",
+    "target_package": "requests",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "omission",
+    "source": "lxyeternal/pypi_malregistry"
+  },
+  {
+    "malicious_package": "requezts",
+    "target_package": "requests",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "replacement",
+    "source": "lxyeternal/pypi_malregistry"
+  },
+  {
+    "malicious_package": "requeats",
+    "target_package": "requests",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "replacement",
+    "source": "lxyeternal/pypi_malregistry"
+  },
+  {
+    "malicious_package": "requesta",
+    "target_package": "requests",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "replacement",
+    "source": "lxyeternal/pypi_malregistry"
+  },
+  {
+    "malicious_package": "arequests",
+    "target_package": "requests",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "addition",
+    "source": "lxyeternal/pypi_malregistry"
+  },
+  {
+    "malicious_package": "requestss",
+    "target_package": "requests",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "repetition",
+    "source": "lxyeternal/pypi_malregistry"
+  },
+  {
+    "malicious_package": "rrequests",
+    "target_package": "requests",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "repetition",
+    "source": "lxyeternal/pypi_malregistry"
+  },
+  {
+    "malicious_package": "reque5ts",
+    "target_package": "requests",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "homoglyph",
+    "source": "lxyeternal/pypi_malregistry"
+  },
+  {
+    "malicious_package": "request",
+    "target_package": "requests",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "plural",
+    "source": "lxyeternal/pypi_malregistry"
+  },
+  {
+    "malicious_package": "raquests",
+    "target_package": "requests",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "vowel_swap",
+    "source": "lxyeternal/pypi_malregistry"
+  },
+  {
+    "malicious_package": "requists",
+    "target_package": "requests",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "vowel_swap",
+    "source": "lxyeternal/pypi_malregistry"
+  },
+  {
+    "malicious_package": "reqest",
+    "target_package": "requests",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "omission",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "flasl",
+    "target_package": "flask",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "transposition",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "pyhton",
+    "target_package": "python",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "transposition",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "pytoh",
+    "target_package": "python",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "transposition",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "pytohn",
+    "target_package": "python",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "transposition",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "etheriumm",
+    "target_package": "ethereum",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "repetition",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "ethreium",
+    "target_package": "ethereum",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "transposition",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "etheruim",
+    "target_package": "ethereum",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "transposition",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "etherim",
+    "target_package": "ethereum",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "omission",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "openseea",
+    "target_package": "opensea",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "repetition",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "oepnsea",
+    "target_package": "opensea",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "transposition",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "oensea",
+    "target_package": "opensea",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "omission",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "opnsea",
+    "target_package": "opensea",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "omission",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "openrsea",
+    "target_package": "opensea",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "addition",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "sphinx-rtd-themes",
+    "target_package": "sphinx-rtd-theme",
+    "ecosystem": "pypi",
+    "registry": "https://pypi.org",
+    "classification": "plural",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "typescriptjs",
+    "target_package": "typescript",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "addition",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "nodemonjs",
+    "target_package": "nodemon",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "addition",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "react-router-dom.js",
+    "target_package": "react-router-dom",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "addition",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "zustand.js",
+    "target_package": "zustand",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "addition",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "babelcl",
+    "target_package": "babel-cli",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "omission",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "npmrunnall",
+    "target_package": "npm-run-all",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "omission",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "streamserch",
+    "target_package": "streamsearch",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "omission",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "chokader",
+    "target_package": "chokidar",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "replacement",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "deezcord.js",
+    "target_package": "discord.js",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "replacement",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "dezcord.js",
+    "target_package": "discord.js",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "omission",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "dizcordjs",
+    "target_package": "discord.js",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "replacement",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "ethesjs",
+    "target_package": "ethers",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "omission",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "ethetsjs",
+    "target_package": "ethers",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "replacement",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "etherdjs",
+    "target_package": "ethers",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "replacement",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "node-mongoose-orm",
+    "target_package": "mongoose",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "addition",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "eslint-config-airbnb-compat",
+    "target_package": "eslint-config-airbnb",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "addition",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "rustdecimal",
+    "target_package": "rust_decimal",
+    "ecosystem": "crates.io",
+    "registry": "https://crates.io",
+    "classification": "delimiter",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "github.com/boltdb-go/bolt",
+    "target_package": "github.com/boltdb/bolt",
+    "ecosystem": "go",
+    "registry": "https://pkg.go.dev",
+    "classification": "delimiter",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "github.com/belatedplanet/hypert",
+    "target_package": "github.com/areknoster/hypert",
+    "ecosystem": "go",
+    "registry": "https://pkg.go.dev",
+    "classification": "other",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "github.com/shadowybulk/hypert",
+    "target_package": "github.com/areknoster/hypert",
+    "ecosystem": "go",
+    "registry": "https://pkg.go.dev",
+    "classification": "other",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "github.com/shallowmulti/hypert",
+    "target_package": "github.com/areknoster/hypert",
+    "ecosystem": "go",
+    "registry": "https://pkg.go.dev",
+    "classification": "other",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "github.com/thankfulmai/hypert",
+    "target_package": "github.com/areknoster/hypert",
+    "ecosystem": "go",
+    "registry": "https://pkg.go.dev",
+    "classification": "other",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "github.com/vainreboot/layout",
+    "target_package": "github.com/loov/layout",
+    "ecosystem": "go",
+    "registry": "https://pkg.go.dev",
+    "classification": "other",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "github.com/ornatedoctrin/layout",
+    "target_package": "github.com/loov/layout",
+    "ecosystem": "go",
+    "registry": "https://pkg.go.dev",
+    "classification": "other",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "github.com/utilizedsun/layout",
+    "target_package": "github.com/loov/layout",
+    "ecosystem": "go",
+    "registry": "https://pkg.go.dev",
+    "classification": "other",
+    "source": "ossf/malicious-packages"
+  },
+  {
+    "malicious_package": "actons/checkout",
+    "target_package": "actions/checkout",
+    "ecosystem": "github_actions",
+    "registry": "https://github.com",
+    "classification": "omission",
+    "source": "orca-security"
+  },
+  {
+    "malicious_package": "circelci/checkout",
+    "target_package": "circleci/checkout",
+    "ecosystem": "github_actions",
+    "registry": "https://github.com",
+    "classification": "transposition",
+    "source": "orca-security"
+  },
+  {
+    "malicious_package": "action/checkout",
+    "target_package": "actions/checkout",
+    "ecosystem": "github_actions",
+    "registry": "https://github.com",
+    "classification": "omission",
+    "source": "orca-security"
+  },
+  {
+    "malicious_package": "aws-action/configure-aws-credentials",
+    "target_package": "aws-actions/configure-aws-credentials",
+    "ecosystem": "github_actions",
+    "registry": "https://github.com",
+    "classification": "omission",
+    "source": "orca-security"
+  },
+  {
+    "malicious_package": "loadsh",
+    "target_package": "lodash",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "transposition",
+    "source": "spellbound-paper"
+  },
+  {
+    "malicious_package": "reequest",
+    "target_package": "request",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "repetition",
+    "source": "spellbound-paper"
+  },
+  {
+    "malicious_package": "comander",
+    "target_package": "commander",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "omission",
+    "source": "spellbound-paper"
+  },
+  {
+    "malicious_package": "require-port",
+    "target_package": "requires-port",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "omission",
+    "source": "spellbound-paper"
+  },
+  {
+    "malicious_package": "axois",
+    "target_package": "axios",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "transposition",
+    "source": "spellbound-paper"
+  },
+  {
+    "malicious_package": "import-mysql",
+    "target_package": "mysql-import",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "word_order",
+    "source": "spellbound-paper"
+  },
+  {
+    "malicious_package": "signqle",
+    "target_package": "signale",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "replacement",
+    "source": "spellbound-paper"
+  },
+  {
+    "malicious_package": "1odash",
+    "target_package": "lodash",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "homoglyph",
+    "source": "spellbound-paper"
+  },
+  {
+    "malicious_package": "uglify.js",
+    "target_package": "uglify-js",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "delimiter",
+    "source": "spellbound-paper"
+  },
+  {
+    "malicious_package": "underscore.string-2",
+    "target_package": "underscore.string",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "addition",
+    "source": "spellbound-paper"
+  },
+  {
+    "malicious_package": "asimplemde",
+    "target_package": "simplemde",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "addition",
+    "source": "spellbound-paper"
+  },
+  {
+    "malicious_package": "zs-sha3",
+    "target_package": "js-sha3",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "replacement",
+    "source": "spellbound-paper"
+  },
+  {
+    "malicious_package": "ns-sha3",
+    "target_package": "js-sha3",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "replacement",
+    "source": "spellbound-paper"
+  },
+  {
+    "malicious_package": "jsmsha3",
+    "target_package": "js-sha3",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "omission",
+    "source": "spellbound-paper"
+  },
+  {
+    "malicious_package": "js-shas",
+    "target_package": "js-sha3",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "replacement",
+    "source": "spellbound-paper"
+  },
+  {
+    "malicious_package": "js-sha7",
+    "target_package": "js-sha3",
+    "ecosystem": "npm",
+    "registry": "https://npmjs.com",
+    "classification": "replacement",
+    "source": "spellbound-paper"
+  }
+]
