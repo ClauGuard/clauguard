@@ -96,32 +96,51 @@ func handleScan(ctx context.Context, req *mcp.CallToolRequest, args scanArgs) (*
 		return textResult("No dependencies found in " + args.Path), nil, nil
 	}
 
-	result := &models.ScanResult{
-		ProjectPath:  args.Path,
-		Dependencies: deps,
-		Ecosystems:   ecosystems,
+	// Build a compact summary — only include actionable findings, not raw lists.
+	summary := map[string]any{
+		"project_path":       args.Path,
+		"dependency_count":   len(deps),
+		"ecosystems_detected": ecosystems,
 	}
 
 	if !args.SkipVuln {
 		vulns, err := advisory.NewOSVClient().QueryBatch(deps)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "warning: vulnerability check failed: %v\n", err)
-		} else {
-			result.Vulnerabilities = vulns
+		} else if len(vulns) > 0 {
+			summary["vulnerability_count"] = len(vulns)
+			summary["vulnerabilities"] = vulns
 		}
 	}
 
 	if !args.SkipIntegrity {
 		checker := integrity.NewChecker()
-		result.IntegrityIssues = checker.Check(deps)
+		issues := checker.Check(deps)
+		if len(issues) > 0 {
+			summary["integrity_issue_count"] = len(issues)
+			summary["integrity_issues"] = issues
+		}
 	}
 
 	if !args.SkipLicense {
 		manifests, _ := detector.Detect(args.Path)
-		result.Licenses = scanner.ExtractLicenses(manifests)
+		licenses := scanner.ExtractLicenses(manifests)
+		var highRisk, unknown []models.LicenseInfo
+		for _, l := range licenses {
+			switch l.Risk {
+			case models.LicenseRiskHigh:
+				highRisk = append(highRisk, l)
+			case models.LicenseRiskUnknown:
+				unknown = append(unknown, l)
+			}
+		}
+		if len(highRisk) > 0 || len(unknown) > 0 {
+			summary["license_high_risk"] = highRisk
+			summary["license_unknown"] = unknown
+		}
 	}
 
-	return jsonResult(result)
+	return jsonResult(summary)
 }
 
 // handleIntegrity runs only supply chain integrity checks.
