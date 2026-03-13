@@ -68,7 +68,7 @@ func TestParseAll_DeduplicatesDependencies(t *testing.T) {
 
 func TestParseAll_SkipsUnknownEcosystem(t *testing.T) {
 	manifests := []detector.DetectedManifest{
-		{Path: "/fake/path/build.gradle", Ecosystem: models.EcosystemGradle},
+		{Path: "/fake/path/unknown.manifest", Ecosystem: "unknown"},
 	}
 
 	deps, warnings, err := ParseAll(manifests)
