@@ -80,6 +80,16 @@ func (c *Checker) checkDependency(dep models.Dependency, popular map[string]bool
 	// For scoped packages (npm @scope/pkg, composer vendor/pkg), extract the package part
 	baseName := extractBaseName(name)
 
+	// Skip known-legitimate packages that would otherwise false-positive
+	if isAllowlisted(name, baseName) {
+		return nil
+	}
+
+	// For scoped packages, skip if the base name is too short (high false positive rate)
+	if baseName != name && len(baseName) <= 5 {
+		return nil
+	}
+
 	// Pass 1: Known malicious exact match
 	if issue := c.checkBlocklist(dep); issue != nil {
 		return []models.IntegrityIssue{*issue} // critical, no need to check further
