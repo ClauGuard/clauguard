@@ -69,6 +69,63 @@ clauguard --skip-outdated
 | 1 | Non-critical issues (medium/low vulnerabilities) |
 | 2 | Critical issues (high/critical vulnerabilities or integrity issues) |
 
+## Claude Code hooks
+
+ClauGuard integrates with Claude Code via hooks to automatically scan dependencies as you work.
+
+### Automatic setup
+
+```bash
+clauguard init
+```
+
+This adds two hooks to `~/.claude/settings.json`:
+
+| Hook | Event | What it does |
+|------|-------|-------------|
+| **Post-edit scan** | `PostToolUse` (Edit/Write) | After Claude edits a dependency manifest, scans for critical/high vulnerabilities and integrity issues. Blocks if found. |
+| **Pre-commit gate** | `PreToolUse` (git commit) | Before Claude commits, scans the project. Blocks the commit if critical issues exist. |
+
+### Manual setup
+
+Add to `~/.claude/settings.json`:
+
+```json
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [{ "type": "command", "command": "clauguard hook post-edit" }]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash(git commit:*)",
+        "hooks": [{ "type": "command", "command": "clauguard hook pre-commit" }]
+      }
+    ]
+  }
+}
+```
+
+### MCP server
+
+For interactive use, ClauGuard also runs as an MCP server:
+
+```json
+{
+  "mcpServers": {
+    "clauguard": {
+      "command": "clauguard",
+      "args": ["mcp"]
+    }
+  }
+}
+```
+
+This gives Claude access to `scan`, `check_integrity`, `check_vulnerabilities`, and `check_licenses` tools.
+
 ## CI/CD integration
 
 ```yaml
