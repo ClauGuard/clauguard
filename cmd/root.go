@@ -8,7 +8,7 @@ import (
 )
 
 var (
-	version = "0.1.0"
+	version = "dev"
 
 	// scanExitCode is set by runScan to propagate exit codes without calling os.Exit directly.
 	scanExitCode int
